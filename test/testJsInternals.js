@@ -48,5 +48,62 @@ testCase ("js internals test", {
     },
     "test === da false para mismo valor y diferente tipo": function() {
         assertFalse(3 === "3");
-    }
+    },
+    
+    // test para == y ===
+
+    // todo
+    
+    /**
+     * vamos ha probar algunas propiedades de los objetos
+     * el acceso a traves de dot notation: objeto.propiedad
+     * el acceso a traves de corchetes: objeto[propiedad]
+    **/
+    "test object with property": function() {
+        var foo = {"name": "john doe"};
+        assertObject(foo);
+    },
+    "test accessing object property by dot notation": function() {
+        var name = "john doe";
+        var foo = {"name": name};
+        assertEquals(name, foo.name);
+    },
+    "test accessing object property by corcheting" : function() {
+        var name = "john doe";
+        var foo = {"name" : name};
+        assertEquals(name, foo["name"]);
+    },
+    "test accessing object property by corcheting with var" : function() {
+        var x = "name";
+        var foo = {"name" : "john doe"};
+        assertEquals(foo[x], foo["name"]);
+    },
+    "test accessing object property with string var": function() {
+        var objName = "john doe";
+        var objAge = 22;
+        var obj = {
+            "name": objName,
+            "age": objAge
+        };
+        assertEquals(obj["name"], "john doe");
+    },
+    "test accessing object property with var": function() {
+        var objName = "john doe";
+        var objAge = 22;
+        var obj = {
+            "name": objName,
+            "age": objAge
+        };
+        var name = "age";
+        assertEquals(obj[name], objAge);
+    },
+    
+    //Uso de caracteres unicode como variables
+    "test var ASCII como variable" : function() {
+        var obj = {"€": 22};
+        assertEquals(obj["€"], 22);
+    },
+    
+  
+
 });
