@@ -33,5 +33,20 @@ testCase ("js internals test", {
     },
     "test invoking function which returns number is number": function() {
         assertNumber(function() {return 2;}());
+    },
+    
+    // vamos a hacer unos tests para demostrar las diferencias entre los
+    // operadores logicos (devuelven true o false) !== y !=
+    "test == da true para mismo valor y mismo tipo": function() {
+        assertTrue(3 == 3);
+    },
+    "test == da true para mismo valor y diferente tipo": function() {
+        assertTrue(3 == "3");
+    },
+    "test === da true para mismo valor y mismo tipo": function() {
+        assertTrue(3 === 3);
+    },
+    "test === da false para mismo valor y diferente tipo": function() {
+        assertFalse(3 === "3");
     }
 });
