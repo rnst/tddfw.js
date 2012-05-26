@@ -50,10 +50,6 @@ testCase ("js internals test", {
         assertFalse(3 === "3");
     },
     
-    // test para == y ===
-
-    // todo
-    
     /**
      * vamos ha probar algunas propiedades de los objetos
      * el acceso a traves de dot notation: objeto.propiedad
@@ -104,6 +100,23 @@ testCase ("js internals test", {
         assertEquals(obj["€"], 22);
     },
     
-  
-
+    /**
+     * probar como funcionan los operadores de incremento:
+     * - existe el incremento como prefijo?
+     * - existe el incremento como postfijo?
+     * - tienen diferencias como en c?
+     */
+    "test pre-incremento incrementa antes" : function() {
+        var a = 0;
+        assertEquals(1, ++a); 
+    },
+    "test post-incremento no incrementa antes" : function() {
+        var a = 0;
+        assertNotEquals(1, a++);
+    },
+    "test post-incremento incrementa después" : function() {
+        var a = 0;
+        a++;
+        assertEquals(1, a);
+    }
 });
