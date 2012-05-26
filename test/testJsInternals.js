@@ -48,5 +48,25 @@ testCase ("js internals test", {
     },
     "test === da false para mismo valor y diferente tipo": function() {
         assertFalse(3 === "3");
+    },
+    
+    /**
+     * probar como funcionan los operadores de incremento:
+     * - existe el incremento como prefijo?
+     * - existe el incremento como postfijo?
+     * - tienen diferencias como en c?
+     */
+    "test pre-incremento incrementa antes" : function() {
+        var a = 0;
+        assertEquals(1, ++a); 
+    },
+    "test post-incremento no incrementa antes" : function() {
+        var a = 0;
+        assertNotEquals(1, a++);
+    },
+    "test post-incremento incrementa después" : function() {
+        var a = 0;
+        a++;
+        assertEquals(1, a);
     }
 });
