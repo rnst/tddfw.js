@@ -118,5 +118,30 @@ testCase ("js internals test", {
         var a = 0;
         a++;
         assertEquals(1, a);
-    }
+    },
+    
+    /**
+     * he leido que si se comparan dos objetos iguales con === da false
+     * voy a hacer varios tests para comprobar este comportamiento
+     * y buscar informacion para descubrir porque
+     * tambien estaria bien linkar al post de stackoverflow donde lo lei
+     */
+     
+     "test dos objetos vacios no son estrictamente iguales": function () {
+        assertNotSame({}, {});
+     },
+     "test dos objectos vacios no son iguales": function () {
+        assertNotEquals({}, {});
+     },
+     "test dos objetos vacios copiados por variable son estrictamente iguales":
+     function () {
+        var a = {};
+        var b = a;
+        assertSame(a, b);
+     },
+     "test dos objetos vacios en variables no son iguales": function () {
+        var a = {};
+        var b = {};
+        assertNotEquals(a, b);
+     }
 });
