@@ -124,7 +124,7 @@ testCase ("js internals test", {
      * he leido que si se comparan dos objetos iguales con === da false
      * voy a hacer varios tests para comprobar este comportamiento
      * y buscar informacion para descubrir porque
-     * tambien estaria bien linkar al post de stackoverflow donde lo lei
+     * http://code.google.com/p/js-test-driver/issues/detail?id=119
      */
      
      "test dos objetos vacios no son estrictamente iguales": function () {
