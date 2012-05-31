@@ -1,4 +1,8 @@
-/** code from tddjs.com **/
+var statusColor = {
+    "pass": "0c0",
+    "fail": "c00",
+    "header": "000"
+};
 
 function output(text, color) {
     var p = document.createElement("p");
@@ -10,6 +14,8 @@ function output(text, color) {
 function testCase(name, tests) {
     var successful = 0;
     var testCount = 0;
+    
+    output("<strong>" + name + "</strong>", statusColor.header);
 
     for (var test in tests) {
         if (!/^test/.test(test)) {
@@ -20,15 +26,14 @@ function testCase(name, tests) {
 
         try {
             tests[test]();
-            output(test, "0c0");
+            output(test, statusColor.pass);
             successful++;
         } catch(e) {
-            output(test + " failed: " + e.message, "c00");
+            output(test + " failed: " + e.message, statusColor.fail);
         }
     }
 
-    var color = successful === testCount ? "0c0" : "c00";
-
     output("<strong>" + testCount + " tests, " + (testCount - successful) +
-        " failures</strong>", color);
+        " failures</strong>", 
+        successful === testCount ? statusColor.pass : statusColor.fail);
 }
