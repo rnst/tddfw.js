@@ -18,10 +18,6 @@ function testCase(name, tests) {
     output("<strong>" + name + "</strong>", statusColor.header);
 
     for (var test in tests) {
-        if (!/^test/.test(test)) {
-            continue;
-        }
-
         testCount++;
 
         try {
